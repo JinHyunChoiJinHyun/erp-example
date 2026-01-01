@@ -2,7 +2,8 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import CommonButton from "../_components/CommonButton"
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"; 
+// app 디렉토리 사용 시 router가 아닌 navigation
 
 interface SignUpForm {
     username: string;
@@ -12,6 +13,7 @@ interface SignUpForm {
 }
 
 export default function SignUpPage(){
+    // 백으로 전송될 form
     const [form, setForm] = useState<SignUpForm>({
         username: "",
         password: "",
@@ -125,7 +127,12 @@ export default function SignUpPage(){
                     </div>
                     {message && <p className="text-sm text-red-500 mt-4">{message}</p>}
                     {/* Submit Button */}
-                    <CommonButton type="submit">Create Account</CommonButton>
+                    <button 
+                        type="submit" 
+                        className="w-full bg-orange-500 text-white py-2 rounded"
+                    >
+                        Create Account
+                    </button>
                 </form>
             </div>
         </div>
